@@ -1,15 +1,16 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-// Simple pill style using inline styles to avoid CSS changes
+// Simple pill style using theme variables to support dark mode
 const chipStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: '6px',
   padding: '4px 8px',
   borderRadius: '999px',
-  background: 'var(--chip-bg, #efefef)',
-  border: '1px solid #ddd',
+  background: 'var(--card)',
+  border: '1px solid var(--card-border)',
+  color: 'var(--text)',
   fontSize: '0.9rem',
 };
 
@@ -19,6 +20,7 @@ const closeBtnStyle: React.CSSProperties = {
   background: 'transparent',
   lineHeight: 1,
   fontSize: '0.9rem',
+  color: 'var(--text)',
 };
 
 export default function ActiveChips() {

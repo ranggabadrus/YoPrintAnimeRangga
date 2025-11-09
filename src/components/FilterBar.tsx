@@ -119,6 +119,7 @@ export default function FilterBar() {
           type="button"
           onClick={() => setExpanded(true)}
           title="Show filters"
+          className="filter-button"
         >
           Filters
         </button>
@@ -246,6 +247,7 @@ export default function FilterBar() {
             onClick={clearAll}
             disabled={!hasAny}
             title="Clear filters"
+            className={!hasAny ? ' filter-button-disabled' : 'filter-button'}
           >
             Clear Filter
           </button>
@@ -253,6 +255,7 @@ export default function FilterBar() {
             type="button"
             onClick={() => setExpanded(false)}
             title="Hide filters"
+            className="filter-button"
           >
             Hide Filters
           </button>
