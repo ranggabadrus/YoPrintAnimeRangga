@@ -34,27 +34,27 @@ export default function Header() {
   return (
     <header className="container">
       <div className="nav">
-        <button
-          type="button"
-          aria-label={`Toggle theme (currently ${theme})`}
-          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          onClick={toggle}
-        >
-          {theme === 'dark' ? '🌙' : '☀️'}
-        </button>
-        <Link to="/" className="brand">
-          YoPrint Anime
-        </Link>
-        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-          <form onSubmit={onSubmit} className="searchbar">
-            <input
-              value={term}
-              onChange={(e) => onChange(e.target.value)}
-              placeholder="Search anime..."
-              aria-label="Search anime"
-            />
-          </form>
+        <div className="nav-left">
+          <button
+            type="button"
+            aria-label={`Toggle theme (currently ${theme})`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            onClick={toggle}
+          >
+            {theme === 'dark' ? '🌙' : '☀️'}
+          </button>
+          <Link to="/" className="brand">
+            YoPrint Anime
+          </Link>
         </div>
+        <form onSubmit={onSubmit} className="searchbar">
+          <input
+            value={term}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder="Search anime..."
+            aria-label="Search anime"
+          />
+        </form>
       </div>
     </header>
   );

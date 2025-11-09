@@ -43,18 +43,7 @@ export const fetchAnimeList = createAsyncThunk<
     { signal }
   ) => {
     const base = 'https://api.jikan.moe/v4';
-    /* istanbul ignore next */ console.log({
-      q,
-      page,
-      limit,
-      type,
-      year,
-      score,
-      status,
-      rating,
-      orderBy,
-      sort,
-    });
+
     const hasFilters = Boolean(
       (type && type !== 'any') ||
         year ||
@@ -85,7 +74,6 @@ export const fetchAnimeList = createAsyncThunk<
     const order = orderBy && orderBy !== 'none' ? orderBy : 'score';
     const direction: 'asc' | 'desc' =
       sort === 'asc' || sort === 'desc' ? sort : 'desc';
-    /* istanbul ignore next */ console.log('order', order);
     // Choose endpoint: if there is query or filters, use search endpoint; else top endpoint
     const useSearchEndpoint = q || hasFilters;
     const url = useSearchEndpoint
@@ -93,7 +81,7 @@ export const fetchAnimeList = createAsyncThunk<
           '&'
         )}&sfw=true&order_by=${encodeURIComponent(order)}&sort=${direction}`
       : `${base}/top/anime?${params.join('&')}`;
-    /* istanbul ignore next */ console.log('url', url);
+
     const res = await fetch(url, { signal });
     const data: AnimeSearchResponse = await res.json();
     return {

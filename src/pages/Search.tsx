@@ -75,7 +75,7 @@ export default function SearchPage() {
     <main className="container">
       <FilterBar />
       <ActiveChips />
-      <h2 style={{ marginBottom: 12 }}>{headerText}</h2>
+      <h2 style={{ marginBottom: 12, marginTop: 10 }}>{headerText}</h2>
       <div className="grid">
         {loading &&
           Array.from({ length: 12 }).map((_, i) => (

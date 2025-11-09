@@ -49,11 +49,13 @@ export default function ActiveChips() {
   }, [params]);
 
   const clearKey = (key: string) => {
-    const next = new URLSearchParams(params);
-    next.delete(key);
-    next.set('page', '1');
-    setParams(next, { replace: true });
+    clearParam(params, setParams, key);
   };
+
+  // Separate handler factory helps Istanbul attribute coverage correctly
+  function makeClearHandler(key: string) {
+    return () => clearKey(key);
+  }
 
   if (items.length === 0) return null;
 
@@ -77,7 +79,7 @@ export default function ActiveChips() {
             type="button"
             aria-label={`Clear ${label}`}
             title={`Clear ${label}`}
-            onClick={() => clearKey(key)}
+            onClick={makeClearHandler(key)}
             style={closeBtnStyle}
           >
             ×
@@ -86,4 +88,16 @@ export default function ActiveChips() {
       ))}
     </div>
   );
+}
+
+// Exported helper for unit coverage
+export function clearParam(
+  params: URLSearchParams,
+  setParams: (next: URLSearchParams, opts: { replace: boolean }) => void,
+  key: string
+) {
+  const next = new URLSearchParams(params);
+  next.delete(key);
+  next.set('page', '1');
+  setParams(next, { replace: true });
 }

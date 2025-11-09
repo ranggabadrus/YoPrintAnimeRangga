@@ -87,6 +87,14 @@ Each section lists the prompt, the AI tool used, and what part of the project it
 
 ---
 
+### Filter animation
+
+**Prompt:**
+
+> "Add a filter bar that can toggle between minimized and expanded states. When collapsed, display all filter options. When minimized, show only a single button to expand the filter bar. When the expand button is pressed, animate the filter bar so it smoothly expands in width from top to bottom."
+
+---
+
 ### Unit Test
 
 **Prompt:**
