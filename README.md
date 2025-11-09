@@ -2,7 +2,7 @@
 
 ### Dark Mode
 
-https://github.com/user-attachments/assets/8f92503c-ddfd-4fe9-bec9-00209642d067
+https://github.com/user-attachments/assets/5d4cce41-a157-491a-aefe-763d9f6f6922
 
 ### Individual clear filter and search
 
